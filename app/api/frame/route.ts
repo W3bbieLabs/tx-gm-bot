@@ -40,14 +40,18 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   let user_info = await getUserInfo(fid)
   let { username } = user_info
   let time = Date.now()
+
+  return gmFrame(username, address, time)
   //console.log(message)
 
   // User tapped refresh button
+  /*
   if (message?.button == 2) {
     return gmFrame(username, address, time)
-  }
+  }*/
 
   // No verified address found
+  /*
   if (address == '') return errorFrame("Please add a Verified Address")
   let contract_response = await airDrop(CONTRACT_ADDRESS, address, Zora1155ABI, TOKEN_ID)
   if (contract_response.status == ContractResponse.SUCCESS) {
@@ -56,6 +60,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   } else {
     return errorFrame("Opps! Something went wrong.")
   }
+  */
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
